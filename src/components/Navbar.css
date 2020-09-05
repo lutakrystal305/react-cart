@@ -1,0 +1,18 @@
+button {
+    color: #54DE27;
+    background-color: transparent;
+    border: none;
+}
+button:hover {
+    border: 2px solid #54DE27; 
+}
+.Top {
+    margin-left: 50px;
+}
+.Linkz {
+    color: #777;
+}
+.Linkz:hover {
+    text-decoration: none;
+    color: #333;
+}

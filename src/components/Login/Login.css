@@ -1,0 +1,7 @@
+#form-login {
+    margin-top: 60px;
+}
+input:focus {
+    outline: none;
+    padding: 10px;
+}

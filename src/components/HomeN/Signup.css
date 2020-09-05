@@ -1,0 +1,24 @@
+form {
+    width: 600px;
+    border: 1px solid #AAA;
+    border-radius: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input {
+    margin-left: 20px;
+    width: 400px;
+    height: 50px;
+    border-radius: 5px;
+}
+.form-group {
+    margin-bottom: 30px;
+}
+h3 {
+    margin-top: 30px;
+    color: #54DE27;
+    margin-bottom: 30px;
+}

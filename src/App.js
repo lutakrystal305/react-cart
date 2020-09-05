@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Login from "./components/Login/index";
+import HomeN from "./components/HomeN";
+import Navbar from "./components/Navbar";
+import PrivateRoute from "./components/PrivateRoute";
+import Product from './product/Product';
+import { AuthProvider } from "./components/context/Auth.Context";
+import { CartProvider } from "./components/context/Cart.Context";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 
-function App() {
+export default function App() {
+  //useEffect(() => {
+  //checkLoggin();
+  //})
+  const loggin = localStorage.getItem("key");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <Router>
+        <CartProvider>
+          <div>
+            <Navbar />
+            <Switch>
+              <Route exact path="/">
+                <HomeN />
+              </Route>
+              <Route path="/login">
+                {loggin ? <Redirect to="/home" /> : <Login />}
+              </Route>
+              <PrivateRoute path="/home">
+                <Home />
+              </PrivateRoute>
+              <PrivateRoute path="/product">
+                <Product />
+              </PrivateRoute>
+            </Switch>
+          </div>
+        </CartProvider>
+      </Router>
+    </AuthProvider>
   );
 }
 
-export default App;
+function Home() {
+  return <h2>Home</h2>;
+}
