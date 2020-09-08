@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { Container, Row, Col, Card, CardBody, Button, CardTitle, CardText, CardImg } from 'reactstrap';
 import { CartContext } from "../context/Cart.Context";
+import { ProductContext } from "../context/Product.Context";
 
-const Cart = (props) => {
-    const { products } = props;
+const Cart = () => {
 
     const { addToCart } = useContext(CartContext);
+    const { products } = useContext(ProductContext);
 
     return(
         <Container>

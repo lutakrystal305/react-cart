@@ -6,6 +6,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Product from './product/Product';
 import { AuthProvider } from "./components/context/Auth.Context";
 import { CartProvider } from "./components/context/Cart.Context";
+import { ProductProvider } from './components/context/Product.Context';
 import {
   BrowserRouter as Router,
   Switch,
@@ -34,8 +35,10 @@ export default function App() {
               <PrivateRoute path="/home">
                 <Home />
               </PrivateRoute>
-              <PrivateRoute path="/product">
-                <Product />
+              <PrivateRoute exact path="/product">
+                <ProductProvider>
+                  <Product />
+                </ProductProvider>
               </PrivateRoute>
             </Switch>
           </div>
