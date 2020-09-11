@@ -13,7 +13,7 @@ export const AuthProvider = (props) => {
           setIsAuth(true);
           localStorage.setItem("key", true);
           localStorage.setItem("user", JSON.stringify(res.data));
-          console.log(`${JSON.stringify(res.data)} ab`);
+    
         }
       });
   };

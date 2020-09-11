@@ -1,0 +1,58 @@
+.Cartz {
+    width: 1200px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border: 1px solid #aaaaaa;
+    border-radius: 30px;
+    display: flex;
+    overflow: hidden;
+}
+.Dividerz {
+    width: 300px;
+    height: 100%;
+    background-color: #AAA !important;
+   
+}
+.namePro {
+    height: 64px;
+}
+.cardroot {
+    width: 300px;
+    height: 380px;
+}
+.listItemz {
+    background-color: #AAA !important;
+    border: 1px solid #777 !important;
+}
+
+.Item h3 {
+    text-align: center;
+}
+.Itemz {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-itemZ {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    font-size: 20px;
+    font-style: oblique;
+    padding: 10px 40px 10px 40px;
+    color: #FFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.btn-itemZ {
+    text-shadow: 1px 1px #80B534;
+}
+.chosen {
+    color: #80B534 !important;
+    background-color: #fff !important;
+}
+.cardS {
+    display: flex;
+}

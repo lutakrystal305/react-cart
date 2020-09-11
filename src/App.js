@@ -4,8 +4,10 @@ import HomeN from "./components/HomeN";
 import Navbar from "./components/Navbar";
 import PrivateRoute from "./components/PrivateRoute";
 import Product from './product/Product';
+import Cart from './components/Cart';
 import { AuthProvider } from "./components/context/Auth.Context";
 import { CartProvider } from "./components/context/Cart.Context";
+import { PurchaseProvider } from "./components/context/Purchase.Context";
 import { ProductProvider } from './components/context/Product.Context';
 import {
   BrowserRouter as Router,
@@ -40,6 +42,11 @@ export default function App() {
                   <Product />
                 </ProductProvider>
               </PrivateRoute>
+              <PurchaseProvider>
+                <PrivateRoute path="/cartShopping">
+                  <Cart />
+                </PrivateRoute>
+              </PurchaseProvider>
             </Switch>
           </div>
         </CartProvider>

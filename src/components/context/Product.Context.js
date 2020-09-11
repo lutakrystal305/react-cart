@@ -12,20 +12,21 @@ export const ProductProvider = (props) => {
     const [topUrl, setTopUrl] = useState('');
     const [endPage, setEndPage] = useState({});
     const [changePage, setChangePage] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
     const handleChangePage = (x) => {
-        console.log(`${x} ab`)
+
         setChangePage('/products'+x);
     }
     const url = changePage || '/products?page=1';
-    console.log(`${url} zs1`);
+
     
 
     const getProduct = () => {
         axios
             .get("http://localhost:8080" + url)
             .then((res) => {
-                console.log(res.data.products);
+
                 setProducts(res.data.products);
                 setCurrentPage(res.data.currentPage);
                 setNextPage(res.data.nextPage);
@@ -34,6 +35,9 @@ export const ProductProvider = (props) => {
                 setPre2Page(res.data.pre2Page);
                 setTopUrl(res.data.topUrl);
                 setEndPage(res.data.endPage);
+                if (products) {
+                    setIsLoading(false);
+                }
             })
     }
     return(
@@ -49,7 +53,8 @@ export const ProductProvider = (props) => {
                 endPage,
                 getProduct,
                 changePage,
-                handleChangePage
+                handleChangePage,
+                isLoading
             }}
         >
             {props.children}

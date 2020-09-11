@@ -15,6 +15,26 @@ const Example = (props) => {
     } = useContext(ProductContext);
   return (
     <Pagination aria-label="Page navigation example" className="Paginationz">
+        {(currentPage > 3) ?
+            (<PaginationItem>
+                <PaginationLink href='/product?page=1' >
+                    <span >
+                        1
+                    </span>
+                </PaginationLink>
+            </PaginationItem>)
+        : ''
+        }
+        {(currentPage > 4) ?
+            (<PaginationItem>
+                <PaginationLink >
+                    <span >
+                        ...
+                    </span>
+                </PaginationLink>
+            </PaginationItem>)
+        : ''
+        }
         {(currentPage > 2) ?
             (<PaginationItem>
                 <PaginationLink href={`/product?page=${pre2Page.number}`} >
@@ -40,7 +60,7 @@ const Example = (props) => {
                 {currentPage}
             </PaginationLink>
         </PaginationItem>
-        { (currentPage = endPage.number ) ?
+        { (currentPage < endPage.number ) ?
             (<PaginationItem>
                 <PaginationLink href={`/product?page=${nextPage.number}`} >
                     <span >
@@ -50,7 +70,7 @@ const Example = (props) => {
             </PaginationItem>)
             : ''
         }
-        {(currentPage > (endPage.number - 2)) ?
+        {(currentPage < (endPage.number - 1)) ?
             (<PaginationItem>
                 <PaginationLink href={`/product?page=${next2Page.number}`} >
                     <span >
@@ -59,7 +79,27 @@ const Example = (props) => {
                 </PaginationLink>
             </PaginationItem>)
             : ''
-            }
+        }
+        {(currentPage < (endPage.number-3)) ?
+            (<PaginationItem>
+                <PaginationLink >
+                    <span >
+                        ...
+                    </span>
+                </PaginationLink>
+            </PaginationItem>)
+        : ''
+        }
+        {(currentPage < (endPage.number-2)) ?
+            (<PaginationItem >
+                <PaginationLink href={`/product?page=${endPage.number}`}>
+                    <span >
+                        {endPage.number}
+                    </span>
+                </PaginationLink>
+            </PaginationItem>)
+        : ''
+        }
     </Pagination>
   );
 }

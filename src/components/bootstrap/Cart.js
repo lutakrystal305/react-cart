@@ -21,7 +21,7 @@ const Cart = () => {
                     <CardText>
                         <small className="text-muted">Price: {product.price}</small>
                     </CardText>
-                    <Button color="success" onClick={addToCart}>
+                    <Button color="success" onClick={() => addToCart(product)}>
                         Add to Cart
                     </Button>
                     </CardBody>

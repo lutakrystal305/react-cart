@@ -21,11 +21,18 @@ const Example = (props) => {
   const { cartItem } = useContext(CartContext);
 
   const history = useHistory();
-
+  const data = sessionStorage.getItem('cartItem');
   const toggle = () => setIsOpen(!isOpen);
   const user = JSON.parse(localStorage.getItem("user"));
   const isAuthen = localStorage.getItem("key") || isAuth;
-
+  var cartItemS;
+  if (cartItem.length !== 0) {
+    cartItemS = cartItem;
+  } else if (data){
+    cartItemS = JSON.parse(data);
+  } else {
+    cartItemS = [];
+  }
   const signOut = () => {
     localStorage.removeItem("key");
     localStorage.removeItem("user");
@@ -50,10 +57,10 @@ const Example = (props) => {
               <Link to="/home" className='Linkz'>Home</Link>
             </NavItem>
             <NavItem className="Top">
-              <Link to="/product" className='Linkz'>Product</Link>
+              <Link to="/product?page=1" className='Linkz'>Product</Link>
             </NavItem>
             <NavItem className="Top">
-              <Link to="#" className='Linkz'>Cart({cartItem.length})</Link>
+              <Link to="/cartShopping" className='Linkz'>Cart({cartItemS.length})</Link>
             </NavItem>
             {isAuth ? (
               <NavItem className="Top">

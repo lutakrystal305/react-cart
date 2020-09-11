@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 
+const data = sessionStorage.getItem('cartItem');
 export const CartContext = React.createContext();
 export const CartProvider = (props) => {
-    
-    const [cartItem, setCartItem] = useState([]);
+    let dataS = JSON.parse(data) || []
+    const [cartItem, setCartItem] = useState(dataS);
+   
     const addToCart = (product) => {
-        setCartItem(cartItem.concat(product));
-        console.log(cartItem);
+        dataS = [{...product, isChosen: false}, ...cartItem];
+        setCartItem(dataS);
+        sessionStorage.setItem('cartItem', JSON.stringify(dataS));
+
     }
     return(
         <CartContext.Provider
