@@ -8,12 +8,16 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
+import { ProductContext } from '../context/Product.Context';
+
 
 const filter = createFilterOptions();
 
 export default function FreeSoloCreateOptionDialog() {
   const [value, setValue] = React.useState(null);
   const [open, toggleOpen] = React.useState(false);
+
+  const { products } = React.useContext(ProductContext);
 
   const handleClose = () => {
     setDialogValue({
@@ -76,7 +80,7 @@ export default function FreeSoloCreateOptionDialog() {
           return filtered;
         }}
         id="free-solo-dialog-demo"
-        options={top100Films}
+        options={products}
         getOptionLabel={(option) => {
           // e.g value selected with enter, right from the input
           if (typeof option === 'string') {
@@ -94,15 +98,15 @@ export default function FreeSoloCreateOptionDialog() {
         style={{ width: 300 }}
         freeSolo
         renderInput={(params) => (
-          <TextField {...params} label="Free solo dialog" variant="outlined" />
+          <TextField {...params} label="Item?" variant="outlined" />
         )}
       />
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <form onSubmit={handleSubmit}>
-          <DialogTitle id="form-dialog-title">Add a new film</DialogTitle>
+          <DialogTitle id="form-dialog-title">Search a item</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Did you miss any film in our list? Please, add it!
+              ....
             </DialogContentText>
             <TextField
               autoFocus

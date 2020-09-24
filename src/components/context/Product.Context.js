@@ -13,12 +13,22 @@ export const ProductProvider = (props) => {
     const [endPage, setEndPage] = useState({});
     const [changePage, setChangePage] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const [searchP, setSearchP] = useState([]);
+    const [search, setSearch] = useState(false);
 
     const handleChangePage = (x) => {
 
         setChangePage('/products'+x);
     }
-    const url = changePage || '/products?page=1';
+    const handleChangeClick = () => {
+        setChangePage('/products?page=1')
+    }
+    let url
+    if (changePage) {
+        url = changePage;
+    } else {
+        url = '/products?page=1';
+    }
 
     
 
@@ -40,6 +50,23 @@ export const ProductProvider = (props) => {
                 }
             })
     }
+    let arr;
+    const changeProduct = (value) => {
+        if (value) {
+            setSearch(true);
+            value=value.toLowerCase();
+            arr=products.filter((x) => {
+                if (x.name.toLowerCase().indexOf(value) !== -1) {
+                    return x;
+                }
+            })
+            console.log(arr);   
+            setSearchP(arr);
+        } else {
+            setSearch(false);
+        }
+    }
+
     return(
         <ProductContext.Provider
             value={{
@@ -54,7 +81,11 @@ export const ProductProvider = (props) => {
                 getProduct,
                 changePage,
                 handleChangePage,
-                isLoading
+                handleChangeClick,
+                isLoading,
+                searchP,
+                search,
+                changeProduct
             }}
         >
             {props.children}

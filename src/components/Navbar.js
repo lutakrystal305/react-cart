@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import './Navbar.css';
+import classNames from 'classnames';
 import {
   Collapse,
   Navbar,
@@ -13,9 +14,12 @@ import {
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from './context/Auth.Context';
 import { CartContext } from './context/Cart.Context';
+import avt from './img/avt.png';
+import Drawer from './material-ui/Drawer';
 
 const Example = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hover, setHover] = useState(false);
 
   const { isAuth, checkLoggin } = useContext(AuthContext);
   const { cartItem } = useContext(CartContext);
@@ -25,6 +29,13 @@ const Example = (props) => {
   const toggle = () => setIsOpen(!isOpen);
   const user = JSON.parse(localStorage.getItem("user"));
   const isAuthen = localStorage.getItem("key") || isAuth;
+
+  const handleOver = () => {
+    setHover(true)
+  }
+  const handleOut = () => {
+    setHover(false)
+  }
   var cartItemS;
   if (cartItem.length !== 0) {
     cartItemS = cartItem;
@@ -34,30 +45,28 @@ const Example = (props) => {
     cartItemS = [];
   }
   const signOut = () => {
-    localStorage.removeItem("key");
-    localStorage.removeItem("user");
     localStorage.removeItem("token");
+    if (!localStorage.getItem('token')) {
+      localStorage.removeItem("key");
+      if (!localStorage.getItem('key')) {
+        localStorage.removeItem("user");
+      }
+    }
     history.push("/");
     window.location.reload();
-  };
-
-  const token = localStorage.getItem("token");
-  useEffect(() => {
-    checkLoggin(token)
-  })
+  }
 
   return (
-    <div>
+    <div className='d-Navbar'>
       <Navbar color="light" light expand="md">
         <NavbarBrand href="/">Krystal</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem className="Top">
               <Link to="/home" className='Linkz'>Home</Link>
             </NavItem>
             <NavItem className="Top">
-              <Link to="/product?page=1" className='Linkz'>Product</Link>
+              <Link to="/product" className='Linkz'>Product</Link>
             </NavItem>
             <NavItem className="Top">
               <Link to="/cartShopping" className='Linkz'>Cart({cartItemS.length})</Link>
@@ -70,8 +79,13 @@ const Example = (props) => {
               <Link to="/login" className='Linkz Top'><b> Login </b></Link>
             )}
           </Nav>
-          <NavbarText>{user ? user.name : "Anonymous"}</NavbarText>
+          
         </Collapse>
+        <NavbarText>
+          <div className='user'>
+            <Drawer user={user}/>
+          </div>
+        </NavbarText>
       </Navbar>
     </div>
   );

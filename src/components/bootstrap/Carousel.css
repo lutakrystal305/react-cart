@@ -1,0 +1,17 @@
+.carousel-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: fill;
+}
+.carousel-item {
+    overflow: hidden;
+    height: 450px !important;
+}
+.carousel-inner {
+    margin-bottom: 20px;
+}
+@media (max-width: 600px) {
+    .carousel-item {
+        height: 300px !important;
+    }
+}

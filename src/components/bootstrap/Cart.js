@@ -6,12 +6,17 @@ import { ProductContext } from "../context/Product.Context";
 const Cart = () => {
 
     const { addToCart } = useContext(CartContext);
-    const { products } = useContext(ProductContext);
-
+    const { products,searchP,search } = useContext(ProductContext);
+    let items; 
+    if (search) {
+        items=searchP;
+    } else {
+        items=products;
+    }
     return(
         <Container>
             <Row>
-            {products.map(product => (
+            {items.map(product => (
                 <Col sm='4'>
                 <Card>
                     <CardImg top width="100%" src={product.image} alt="Card image cap" />

@@ -25,6 +25,8 @@
 .listItemz {
     background-color: #AAA !important;
     border: 1px solid #777 !important;
+    display: flex;
+    
 }
 
 .Item h3 {
@@ -43,7 +45,7 @@
     font-size: 20px;
     font-style: oblique;
     padding: 10px 40px 10px 40px;
-    color: #FFF;
+    color: #999;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .btn-itemZ {
@@ -55,4 +57,43 @@
 }
 .cardS {
     display: flex;
+}
+.btn-cancel {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.Itemz h5 {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    color: #666;
+    border: 1px solid #AAA;
+}
+.Itemz h5 span {
+    color: #13dba2b5;
+    font-weight: bold;
+}
+.rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+@media (max-width: 600px) {
+    .Cartz {
+        width: 100%;
+        flex-direction: column;
+    }
+    .Dividerz {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(2,auto);
+    }
+    .cardroot {
+        height: 320px;
+    }
 }

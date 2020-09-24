@@ -1,0 +1,29 @@
+.viewer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.body-comment {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.body-comment h6 {
+    position: relative;
+    top: 10px;
+}
+.body-comment p {
+    position: relative;
+    top: 10px;
+    left: 20px;
+    font-style: italic;
+}
+.viewer {
+    margin-bottom: 15px;
+    border: 1px solid #DDD;
+}
+.author h6 {
+    position: relative;
+    top: 10px
+}

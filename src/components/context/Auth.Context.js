@@ -4,6 +4,7 @@ import axios from "axios";
 export const AuthContext = React.createContext();
 export const AuthProvider = (props) => {
   const [isAuth, setIsAuth] = useState(false);
+  const [user, setUser] = useState({})
 
   const checkLoggin = (token) => {
     axios
@@ -13,7 +14,7 @@ export const AuthProvider = (props) => {
           setIsAuth(true);
           localStorage.setItem("key", true);
           localStorage.setItem("user", JSON.stringify(res.data));
-    
+          setUser(res.data);
         }
       });
   };
@@ -22,7 +23,8 @@ export const AuthProvider = (props) => {
     <AuthContext.Provider
       value={{
         isAuth: isAuth,
-        checkLoggin: checkLoggin
+        checkLoggin: checkLoggin,
+        user
       }}
     >
       {props.children}

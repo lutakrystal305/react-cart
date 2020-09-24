@@ -1,0 +1,33 @@
+@media (max-width: 600px) {
+    .makeStyles-paper-3 {
+        width: 350px !important;
+        top: 57%;
+        left: 57%;
+        transform: translate(-57%, -57%);
+    }
+    .inputPay {
+        display: flex;
+        flex-direction: column;
+    }
+}
+.formPay {
+    width: 100% !important;
+    border: none !important;
+}
+.inputPay {
+    width: 100%;
+}
+.inputPay input {
+    width: 100% !important;
+    padding-left: 20px;
+}
+.payment span {
+    color: #18e21dcf;
+    font-weight: bold;
+}
+.payment  {
+    color: #aaa;
+}
+.payment h6 {
+    color:#13dba2b5;
+}
