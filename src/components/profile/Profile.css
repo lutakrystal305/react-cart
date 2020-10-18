@@ -1,0 +1,83 @@
+.Profile {
+    position: relative;
+    background: rgb(31,222,232);
+    background: linear-gradient(4deg, rgba(31,222,232,1) 0%, rgba(221,253,254,1) 54%, rgba(225,243,244,1) 100%);
+}
+.in4 {
+    margin-left:auto;
+    margin-right: auto;
+    position: relative;
+    top: 300px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #AAA;
+    border-radius: 50px;
+    color: #000;
+    background-color: #FFF;
+    width: 800px;
+    height: auto;
+    margin-bottom: 0px;
+}
+.Profile .background {
+    position :absolute;
+    top: 480px;
+    width: 100%;
+    height: 150%;
+    overflow: hidden;
+}
+.Profile .background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.Profile .head-in4 {
+    top: -100px !important;
+}
+.Profile .head-in4 .zz h3 {
+    padding-right: 45px;
+}
+.Profile .Footer {
+    position: relative;
+    top: 300px;
+    margin-top: 30px;
+}
+.Profile .left-scene {
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
+}
+.Profile .right-scene {
+    position: absolute;
+    top: 400px;
+    right: 0px;
+}
+.Profile .address {
+    margin-bottom: 90px;
+}
+.Profile .uni {
+    grid-column: 1 / 3;
+}
+.Profile .new {
+    width: 100%;
+    border: unset !important;
+    padding: unset !important;
+    display: none;
+}
+.Profile .phone1, .email1, .date1, .uni1, .add1 {
+    display: flex !important;
+}
+.Profile .new input {
+    width: 100%;
+    padding: 20px;
+    margin: 0 0 20px 0 !important;
+    border: 1px solid #f44bdf;
+}
+.Profile span {
+    margin-left: 10px;
+}
+.Profile span button:hover {
+    border: unset !important;
+}
+.Profile span button {
+    color: unset ;
+}

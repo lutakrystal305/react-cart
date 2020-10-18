@@ -9,6 +9,7 @@ import './Cart.css';
 import './Button.css';
 import './Button1.css';
 import Comment from './Comment';
+import Footer from '../footer';
 
 const cartItem = JSON.parse(sessionStorage.getItem('cartItem'));
 const Index = () => {
@@ -41,6 +42,7 @@ const Index = () => {
                 <Rating1 />
                 <Comment />
             </div>
+            <Footer />
         </div>
     )
 }

@@ -76,7 +76,7 @@ export default function TemporaryDrawer(props) {
 
           <ListItem button key='z1'>
             {user?
-              (<Link to={`/${user._id}`} className='Link-user'>
+              (<Link to={`/user/${user._id}`} className='Link-user'>
                 <img src={avt} alt='avt' className='avt-user' width={40} />
                 <h6 className='user-name'>{user.name}</h6>
               </Link>)
@@ -88,13 +88,13 @@ export default function TemporaryDrawer(props) {
       <List >
           {isAuth?
             (<ListItem button key='z2' className='Link-item'>
-              <Link to='/author' className='Link-nav'>Creator</Link>
+              <Link to='/creator' className='Link-nav'>Creator</Link>
             </ListItem>)
             : ''
           }
           {user?
             (<ListItem button key='z3' className='Link-item'>
-              <Link to={`/${user._id}/history`} className='Link-nav'>History</Link>
+              <Link to={`/history/${user._id}`} className='Link-nav'>History</Link>
             </ListItem>)
           : ''
           }

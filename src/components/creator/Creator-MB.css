@@ -1,0 +1,56 @@
+@media(max-width: 600px) {
+    .Creator .background {
+        display: none;
+    }
+    .Infor {
+        width: 300px !important;
+        top: 150px;
+    }
+    .Infor .body-in4 {
+        
+        width: 100% !important;
+        font-size: 13px;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+     }
+    .body-in4 > div {
+        width: 90% !important;
+        margin: 0px 10px 10px 10px !important;
+
+    }
+    .body-in4 .mail, .address, .uni {
+        grid-column: 1 / 3;
+    } 
+    .Infor .head-in4 img {
+        width: 100px !important;
+    }
+    .cover-creator {
+        height: 200px;
+    }
+    .cover-creator img {
+        padding: 0px 5px 0px 5px !important;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+    .body-in4 .container-in4 {
+        display: flex !important;
+        flex-direction: column;
+        padding-left: unset;
+    }
+    .body-in4 .container-in4 ul {
+
+        grid-column-gap: 15px;
+    }
+    .body-in4 .container-in4 li {
+        width: auto;
+    }
+    .body-in4 .pj h5 {
+        grid-column: 1 / 5;
+    }
+    
+    
+    .body-in4 .container-in4 div {
+        width: 100% !important;
+        padding-left: unset;
+    }
+}

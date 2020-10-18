@@ -6,6 +6,7 @@ import Progress from '../components/material-ui/Progress';
 import { ProductContext } from '../components/context/Product.Context';
 import Search from './Search';
 import Carousel from '../components/bootstrap/Carousel';
+import Footer from '../components/footer/';
 
 const Product = () => {
     const { getProduct,changePage, handleChangePage, isLoading } = useContext(ProductContext);
@@ -28,6 +29,7 @@ const Product = () => {
                     )
                 }
                 <Pagination className="Paginationz"/> 
+                <Footer/>
             </div>
     )
 }

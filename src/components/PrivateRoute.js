@@ -9,7 +9,7 @@ function PrivateRoute({ children, ...rest }) {
 
   useEffect (() => {
     checkLoggin(token);
-  });
+  },[]);
   return (
     <Route
       {...rest}

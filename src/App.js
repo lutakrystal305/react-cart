@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
 import Login from "./components/Login/index";
 import HomeN from "./components/HomeN";
+import Home from "./components/home/"
 import Navbar from "./components/Navbar";
 import PrivateRoute from "./components/PrivateRoute";
 import Product from './product/Product';
 import Cart from './components/Cart';
-import Profile from './components/Profile';
+import Profile from './components/profile/';
+import History from './components/profile/History'; 
+import Creator from './components/creator/';
 import { AuthProvider } from "./components/context/Auth.Context";
 import { CartProvider } from "./components/context/Cart.Context";
 import { PurchaseProvider } from "./components/context/Purchase.Context";
@@ -19,8 +22,7 @@ import {
 import './App.css';
 
 export default function App() {
-  const data = localStorage.getItem("user");
-  const user = JSON.parse(data);
+  
   const loggin = localStorage.getItem("key");
   return (
     <AuthProvider>
@@ -39,14 +41,14 @@ export default function App() {
                 <Home />
               </PrivateRoute>
               <PrivateRoute path="/creator">
-                <Home />
+                <Creator />
               </PrivateRoute>
-              {user?
-                <PrivateRoute exact path={`/${user._id}`}>
-                  <Profile />
-                </PrivateRoute>
-              : ''
-              }
+              <PrivateRoute path='/user/:id'>
+                <Profile />
+              </PrivateRoute>
+              <PrivateRoute exact path='/history/:id'>
+                <History />
+              </PrivateRoute>
               <PrivateRoute exact path="/product">
                 <ProductProvider>
                   <Product />
@@ -65,6 +67,3 @@ export default function App() {
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}

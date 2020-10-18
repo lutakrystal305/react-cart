@@ -7,6 +7,9 @@ export const CartProvider = (props) => {
     let dataS = JSON.parse(data) || []
     const [cartItem, setCartItem] = useState(dataS);
     const [users, setUsers] = useState([]);
+    const [history, setHistory] = useState([]);
+    const user = localStorage.getItem('user');
+    const userX = JSON.parse(user);
    
     const addToCart = (product) => {
         dataS = [{...product, isChosen: false}, ...cartItem];
@@ -32,6 +35,15 @@ export const CartProvider = (props) => {
         setCartItem([]);
         sessionStorage.removeItem('cartItem');
     }
+    const getHistory = () => {
+        const url = "http://localhost:8080/cart/" +userX._id;
+        axios
+            .get(url)
+            .then((res) => {
+                console.log(res.data);
+                setHistory(res.data);
+            })        
+    }
     return(
         <CartContext.Provider
             value={{
@@ -40,7 +52,9 @@ export const CartProvider = (props) => {
                 convertCart,
                 dellCart,
                 users,
-                getUsers
+                getUsers,
+                history,
+                getHistory
             }}
         >
             {props.children}

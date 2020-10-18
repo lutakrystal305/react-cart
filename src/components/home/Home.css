@@ -1,0 +1,69 @@
+.bg-home {
+    width: 100%;
+    height: 88.5%;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    background-color: rgba(20,20,20, 0.4) !important;
+}
+body {
+    background-color: unset;
+}
+.bg-opacity{
+    position: absolute;
+    opacity: 0.5;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #111 !important;
+}
+.bg-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.bg-content-home {
+   text-align: center;
+   position: relative;
+   top: 100px;
+}
+.bg-content-home h2 {
+    position: relative;
+    top: -30px;
+    color: #b2a0d6;
+}
+.bg-content-home .btn-store {
+    border: 1px solid #AAA;
+    background: rgb(199,237,40);
+    background: linear-gradient(270deg, rgba(199,237,40,1) 0%, rgba(107,247,82,1) 20%, rgba(66,252,87,1) 40%, rgba(127,237,191,0.969625350140056) 60%, rgba(82,213,223,1) 80%, rgba(147,146,242,0.9668242296918768) 100%);
+    padding: 8px 35px 8px 35px;
+    color: #AAA;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.bg-content-home .btn-store:hover {
+    text-decoration: none;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    color: #EEE;
+}
+.bg-content-home .MuiTypography-root {
+    color: #3ee295;
+}
+.bg-content-home .MuiBox-root {
+    position: relative;
+    top: 50px;
+}
+.bg-content-home .MuiRating-root {
+    color: #f27dcf !important;
+}
+@media(max-width: 600px) {
+    .bg-content-home .btn-store {
+        text-decoration: none;
+        background: rgb(238,174,202) !important;
+        background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%) !important;
+        color: #EEE;
+    }
+}

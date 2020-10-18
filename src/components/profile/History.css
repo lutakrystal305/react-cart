@@ -1,0 +1,90 @@
+.History {
+    position: relative;
+}
+.History h3 {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.History table {
+    border: 1px solid #888;
+    border-radius: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.History  tr, td, th {
+    border: 1px solid #ddd;
+    color: #DDD;
+    padding: 8px;
+};
+.name-product {
+    border: none !important;
+    width: 100%;
+}
+
+.History .name-product tr {
+    border-bottom: 1px solid #666 !important;
+    border: unset;
+    display:block;
+    width:99.9%;
+    clear:both;
+}
+
+.name-product td {
+    border: unset !important;
+    padding: unset !important;
+}
+.History th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+.History .name-product tr:nth-child(even) {
+    background-color: transparent !important;
+}
+.History tr:nth-child(even) {
+    background-color: #25252e;
+}
+.History tr:hover {
+    background-color: #444 !important;
+}
+body{
+    
+    background: rgb(20,20,20);
+    background: linear-gradient(184deg, rgba(20,20,20,1) 0%, rgba(68,80,80,1) 54%, rgba(116,124,125,1) 100%);
+}
+.History img {
+    width: 200px;
+    
+}
+.History .left-scene {
+    position: absolute;
+    bottom: 250px;
+}
+.History .right-scene {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+
+
+
+
+
+@media (max-width: 600px) {
+    .History table {
+        width: 100%;
+    }
+    .History img {
+        display: none !important;
+    }
+    .History table td, tr, th {
+        padding: unset !important;
+    }
+}
