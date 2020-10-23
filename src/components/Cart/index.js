@@ -35,7 +35,7 @@ const Index = () => {
                         </Row>
                     </Container>
                         <h5>Total price: {total} <span>({items.length} items)</span></h5>
-                    <Modal /> 
+                        {(items.length !== 0) ? <Modal /> : <button className="btn btn-2 color-green btn-itemZ">Pay =)))</button> }
                 </div>
             </div>
             <div className='rating'>

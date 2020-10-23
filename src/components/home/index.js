@@ -14,7 +14,7 @@ const Home = () => {
             </div>
             <div className='bg-content-home'>
                 <h2>Sorry for the inconvenience!</h2>
-                <Link to='/product?page=1' className='btn-store'>Coming soon...</Link>
+                <Link to='/product?page=1' className='btn-store'>FuckUBitchZzzzz...</Link>
                 <Rating1 />
             </div>
         </div>

@@ -72,38 +72,49 @@ export default function TemporaryDrawer(props) {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List > 
-
+      <List >
+        {user ? 
+        (<Link to={`/user/${user._id}`} className='Link-user'>
           <ListItem button key='z1'>
-            {user?
-              (<Link to={`/user/${user._id}`} className='Link-user'>
+              <div>
                 <img src={avt} alt='avt' className='avt-user' width={40} />
                 <h6 className='user-name'>{user.name}</h6>
-              </Link>)
-            : (<div className='avt-user avt-none-user'></div>)
-            }
+              </div>
           </ListItem>
+        </Link>)
+        : (<ListItem><div className='avt-user avt-none-user'></div></ListItem>)
+        }
       </List>
       <Divider />
       <List >
           {isAuth?
-            (<ListItem button key='z2' className='Link-item'>
-              <Link to='/creator' className='Link-nav'>Creator</Link>
-            </ListItem>)
+            (
+            <Link to='/creator' className='Link-nav'>
+              <ListItem button key='z2' className='Link-item'>
+                Creator
+              </ListItem>
+            </Link>)
             : ''
           }
           {user?
-            (<ListItem button key='z3' className='Link-item'>
-              <Link to={`/history/${user._id}`} className='Link-nav'>History</Link>
-            </ListItem>)
+            (
+            <Link to={`/history/${user._id}`} className='Link-nav'>
+              <ListItem button key='z3' className='Link-item'>
+                History
+              </ListItem>
+            </Link>)
           : ''
           }
-          <ListItem button key='z3' className='Link-item Link-Mobile'>
-            <Link to="/home" className='Linkz'>Home</Link>
-          </ListItem>
-          <ListItem button key='z3' className='Link-item Link-Mobile'>
-            <Link to="/product" className='Linkz'>Product</Link>
-          </ListItem>
+          <Link to="/home" className='Linkz'>
+            <ListItem button key='z3' className='Link-item Link-Mobile'>
+              Home
+            </ListItem>
+          </Link>
+          <Link to="/product" className='Linkz'>
+            <ListItem button key='z3' className='Link-item Link-Mobile'>
+              Product
+            </ListItem>
+          </Link>
           {isAuth?
             (<ListItem button key='z3' className='Link-item Link-Mobile'>
               <Link to="/cartShopping" className='Linkz'>Cart({cartItemS.length})</Link>

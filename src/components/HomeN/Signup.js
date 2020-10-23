@@ -58,11 +58,14 @@ function Signup() {
       (valueEmail.indexOf('@gmail.com') <0)
       || (valueEmail.indexOf(' ') >0)
       ||(valueEmail.length < 13)) {
-        setIsErrEmail(true)
+        setIsErrEmail(true);
+        setMsgErr('Email was wrong syntax ( ...@gmail.com, > 13 character)!')
     } else if ((valuePassword.indexOf(' ') >0)||(valuePassword.length <6)) {
-      setIsErrPassword(true)
+      setIsErrPassword(true);
+      setMsgErr('Password was wrong syntax!')
     } else if (valueAdd.length <3) {
-      setIsErrAdd(true)
+      setIsErrAdd(true);
+      setMsgErr('Address was wrong syntax!')
     } else {
       const user = {
         name: valueName,
@@ -94,10 +97,11 @@ function Signup() {
 
   return (
     <form onSubmit={handleSubmit}>
-      {isErrName ? <Alert>Name must be true</Alert> : ""}
-      {isErrEmail ? <Alert>Email was wrong syntax</Alert> : ""}
-      {isErrPassword ? <Alert>Password was wrong syntax</Alert> : ""}
-      {isErrAdd ? <Alert>form's Address: Province(City), Country </Alert> : ""}
+      {isErrCreate ? <Alert>{msgErr}</Alert> : ''}
+      {isErrName ? <Alert>{msgErr}</Alert> : ""}
+      {isErrEmail ? <Alert>{msgErr}</Alert> : ""}
+      {isErrPassword ? <Alert>{msgErr}</Alert> : ""}
+      {isErrAdd ? <Alert>{msgErr}</Alert> : ""}
       <h3>Register</h3>
       <div className="form-group">
         <input

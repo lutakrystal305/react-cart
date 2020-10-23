@@ -5,3 +5,57 @@ input:focus {
     outline: none;
     padding: 10px;
 }
+.Login {
+    width: auto;
+    height: auto;
+    position: relative;
+}
+.Login form {
+    margin-bottom: 50px;
+    position: relative;
+    top: -130px;
+}
+.Login .left-scene {
+    width: 300px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
+}    
+.Login .left-scene img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.Login .right-scene {
+    width: 200px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+}    
+.Login .right-scene img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.Login .top-scene {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    top: 0px;
+}    
+.Login .top-scene img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@media(max-width: 600px) {
+    .Login .left-scene {
+        display: none;
+    }
+    .Login .right-scene {
+        display: none;
+    }
+}

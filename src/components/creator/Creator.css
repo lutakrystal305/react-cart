@@ -86,11 +86,11 @@
     font-weight: bold;
     
 }
-.body-in4 div:nth-child(odd) {
+.body-in4 > div:nth-child(odd) {
     color: #75e25a ;
     border: 2px solid #df5353;
 }
-.body-in4 div:nth-child(even) {
+.body-in4 > div:nth-child(even) {
     color: #9e81e4;
     border: 2px solid #6be6e0;
 }

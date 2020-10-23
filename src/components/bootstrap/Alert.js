@@ -1,9 +1,16 @@
-import React from "react";
-import { UncontrolledAlert } from "reactstrap";
+import React, { useState } from 'react';
+import { Alert } from 'reactstrap';
 
-function AlertExample(props) {
-  return <UncontrolledAlert color="danger">{props.children}</UncontrolledAlert>;
+const AlertExample = (props) => {
+  const [visible, setVisible] = useState(true);
+
+  const onDismiss = () => setVisible(false);
+
+  return (
+    <Alert color="danger" isOpen={visible} toggle={onDismiss}>
+      {props.children}
+    </Alert>
+  );
 }
 
 export default AlertExample;
-    

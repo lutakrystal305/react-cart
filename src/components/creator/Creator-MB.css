@@ -2,11 +2,11 @@
     .Creator .background {
         display: none;
     }
-    .Infor {
+    .Infor, .in4 {
         width: 300px !important;
         top: 150px;
     }
-    .Infor .body-in4 {
+    .body-in4 {
         
         width: 100% !important;
         font-size: 13px;
@@ -21,7 +21,7 @@
     .body-in4 .mail, .address, .uni {
         grid-column: 1 / 3;
     } 
-    .Infor .head-in4 img {
+    .head-in4 img {
         width: 100px !important;
     }
     .cover-creator {

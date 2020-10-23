@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Alert from "../bootstrap/Alert";
 import Signup from "./Signup";
+import './Signup.css';
 
 function Unloggin() {
   return (

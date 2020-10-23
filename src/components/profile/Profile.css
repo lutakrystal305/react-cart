@@ -30,11 +30,49 @@
     height: 100%;
     object-fit: cover;
 }
+
+.Profile .left-scene-in4 {
+    border: unset !important;
+    position: absolute;
+    width: 200px;
+    top: 20px;
+    left: 20px;
+    overflow: hidden;
+}
+.Profile .left-scene-in4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.Profile .right-scene-in4 {
+    border: unset !important;
+    position: absolute;
+    width: 200px;
+    bottom: 50px;
+    right: -20px;
+    overflow: hidden;
+}
+.Profile .right-scene-in4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .Profile .head-in4 {
     top: -100px !important;
 }
-.Profile .head-in4 .zz h3 {
-    padding-right: 45px;
+.Profile .head-in4 h4 {
+    color: #62D2A2;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.Profile .title {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: -50px;
+    font-weight: bold;
+    color: #b2a9a9 !important;
+    text-shadow: 2px 2px 5px #4fcecd
 }
 .Profile .Footer {
     position: relative;
@@ -80,4 +118,24 @@
 }
 .Profile span button {
     color: unset ;
+}
+.Profile .change-input {
+    border: unset !important;
+}
+.Profile .address .MuiPaper-root {
+    background-color: rgb(187, 242, 187) !important;
+}
+@media(max-width: 600px) {
+    .in4 .head-in4 {
+        top: -50px !important;
+    }
+    .in4 .body-in4 .date, .email {
+        grid-column: 1 / 3;
+    }
+    .Profile .left-scene, .right-scene {
+        display: none;
+    }
+    .Profile .left-scene-in4, .right-scene-in4 {
+        display: none;
+    }
 }

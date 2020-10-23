@@ -6,13 +6,17 @@ import { faUserEdit } from "@fortawesome/free-solid-svg-icons";
 
 import './Profile.css';
 import '../creator/Creator.css';
+import '../creator/Creator-MB.css';
 import './History.css';
 import Footer from '../footer/';
+import Alert1 from '../bootstrap/Alert';
+import Alert2 from '../material-ui/Alert';
 import cover from '../img/bridge.jpg';
-import hzz from '../img/hzz.png';
+import hall1 from '../img/hall1.png';
+import hall2 from '../img/hall2.png';
 import avt from '../img/avt.png';
-import autumn2 from '../img/autumn2.png';
-import autumn3 from '../img/autumn3.png';
+import noel1 from '../img/Noel1.png';
+import noel2 from '../img/Noel2.png';
 
 const Profile = () => {
     const data = localStorage.getItem('user');
@@ -32,6 +36,14 @@ const Profile = () => {
     const [okDate, setOKDate] = useState(false);
     const [okUni, setOKUni] = useState(false);
     const [okAdd, setOKAdd] = useState(false);
+
+
+    const [isErrPhone, setIsErrPhone] = useState(false);
+    const [isErrEmail, setIsErrEmail] = useState(false);
+    const [isErrDate, setIsErrDate] = useState(false);
+    const [isErrUni, setIsErrUni] = useState(false);
+    const [isErrAdd, setIsErrAdd] = useState(false);
+    const [msgErr, setMsgErr] = useState('');
 
     const handleChangePhone = (event) => {
         let value = event.target.value;
@@ -77,79 +89,105 @@ const Profile = () => {
         setOKAdd(false);
     }
     const handleUpdatePhone = () => {
-        setOKPhone(true);
-        setChangePhone(false);
-        const up = {
-            _id: user._id,
-            phone: valuePhone
-        }
+        if ((valuePhone.length !== 10)||(valuePhone.indexOf(' ') > 0)) {
+            setIsErrPhone(true);
+            setMsgErr('Your new Phone was wrong syntax!')
+        } else {
+            setOKPhone(true);
+            setChangePhone(false);
+            const up = {
+                _id: user._id,
+                phone: valuePhone
+            }
+        
         axios
             .post('http://localhost:8080/user/updatePhone', up)
             .then((res) => {
                 localStorage.removeItem('user');
                 localStorage.setItem("user", JSON.stringify(res.data));
             })
+        }
 
     }
     const handleUpdateEmail = () => {
-        setOKEmail(true);
-        setChangeEmail(false);
-        const up = {
-            _id: user._id,
-            email: valueEmail
-        }
-        axios
-            .post('http://localhost:8080/user/updateEmail', up)
-            .then((res) => {
-                localStorage.removeItem('user');
-                localStorage.setItem("user", JSON.stringify(res.data));
-            })
+        if ((valueEmail.length < 13) || (valueEmail.indexOf('@gmail.com') < 0) || (valueEmail.indexOf(' ') > 0)) {
+            setIsErrEmail(true);
+            setMsgErr('Your new Email was wrong syntax!')
+        } else {
+            setOKEmail(true);
+            setChangeEmail(false);
+            const up = {
+                _id: user._id,
+                email: valueEmail
+            }
+            axios
+                .post('http://localhost:8080/user/updateEmail', up)
+                .then((res) => {
+                    localStorage.removeItem('user');
+                    localStorage.setItem("user", JSON.stringify(res.data));
+                })
+            }
 
     }
     const handleUpdateDate = () => {
-        setOKDate(true)
-        setChangeDate(false);
-        const up= {
-            _id: user._id,
-            date: valueDate
-        }   
-        axios
-            .post('http://localhost:8080/user/updateDate', up)
-            .then((res) => {
-                localStorage.removeItem('user');
-                localStorage.setItem("user", JSON.stringify(res.data));
-            })
+        if (valueDate.length < 4) {
+            setIsErrDate(true);
+            setMsgErr('Your date of birth was wrong syntax!')
+        } else {
+            setOKDate(true)
+            setChangeDate(false);
+            const up= {
+                _id: user._id,
+                date: valueDate
+            }   
+            axios
+                .post('http://localhost:8080/user/updateDate', up)
+                .then((res) => {
+                    localStorage.removeItem('user');
+                    localStorage.setItem("user", JSON.stringify(res.data));
+                })
+        }
 
     }
     const handleUpdateUni = () => {
-        setOKUni(true);
-        setChangeUni(false)
+        if (valueUni.length < 1) {
+            setIsErrUni(true);
+            setMsgErr('Your university was wrong syntax!')
+        } else {
+            setOKUni(true);
+            setChangeUni(false)
 
-        const up = {
-            _id: user._id,
-            uni: valueUni
+            const up = {
+                _id: user._id,
+                uni: valueUni
+            }
+            axios
+                .post('http://localhost:8080/user/updateUni', up)
+                .then((res) => {
+                    localStorage.removeItem('user');
+                    localStorage.setItem("user", JSON.stringify(res.data));
+                })
         }
-        axios
-            .post('http://localhost:8080/user/updateUni', up)
-            .then((res) => {
-                localStorage.removeItem('user');
-                localStorage.setItem("user", JSON.stringify(res.data));
-            })
 
     }
     const handleUpdateAdd = () => {
-        setOKAdd(true);
-        setChangeAdd(false);
-        const up = {
-            _id: user._id,  
-            add: valueAdd
+        if (valueAdd.length < 3) {
+            setIsErrAdd(true);
+            setMsgErr('Your address was wrong syntax!')
+        } else {
+            setOKAdd(true);
+            setChangeAdd(false);
+            const up = {
+                _id: user._id,  
+                add: valueAdd
+            }
+            axios
+                .post('http://localhost:8080/user/updateAdd', up)
+                .then((res) => {
+                    localStorage.removeItem('user');
+                    localStorage.setItem("user", JSON.stringify(res.data));
+                })
         }
-        axios
-            .post('http://localhost:8080/user/updateAdd', up)
-            .then((res) => {
-                localStorage.removeItem('user');
-                localStorage.setItem("user", JSON.stringify(res.data));
-            })
 
     }
     
@@ -160,17 +198,24 @@ const Profile = () => {
                 <img src={cover} alt='cover' />
             </div>
             <div className='left-scene'>
-                <img src={autumn3} alt='left-scene'  width={200}/>
+                <img src={noel1} alt='left-scene'  width={200}/>
             </div>
             <div className='right-scene'>
-                <img src={autumn2} alt='right-scene' width={200}/>
+                <img src={noel2} alt='right-scene' width={200}/>
             </div>
             <div className='in4'>
                 <div className='head-in4'>
                     <img src={avt} alt='avt' width={150}/>
-                   
+                    <h4>{user.name}</h4>
                 </div>
+                <h2 className='title'>Curriculum Vitae</h2>
                 <div className='body-in4'>
+                    <div className='left-scene-in4'>
+                        <img src={hall1} alt='left-scene-in4' />
+                    </div>
+                    <div className='right-scene-in4'>
+                        <img src={hall2} alt='right-scene-in4' />
+                    </div>
                     <div className='name'>
                         <label>Name: </label>
                         <p>
@@ -178,6 +223,7 @@ const Profile = () => {
                         </p>
                     </div>
                     <div className='phone'>
+                        {okPhone ? <Alert2 /> : ''}
                         <label>Phone: </label>
                         <p>
                             { okPhone?
@@ -191,15 +237,17 @@ const Profile = () => {
                         </p>
                         <div className={classNames('new', {'phone1': changePhone})}>
                             <div className='change-input'>
+                                {isErrPhone ? <Alert1>{msgErr}</Alert1> : ''}
                                 <input type='text' placeholder='Your new phone :' onChange={handleChangePhone}/>
                             </div>
                             <button onClick={handleUpdatePhone}>Save</button>
                         </div>
                     </div>
                     <div className='email'>
+                        {okEmail ? <Alert2 /> : ''}
                         <label>Email: </label>
                         <p>
-                            {user.email}
+                            {okEmail ? valueEmail  : user.email }
                             <span>
                                 <button onClick={handleClickEmail}>
                                     <FontAwesomeIcon icon={faUserEdit} className='btn-change-in4' />
@@ -208,12 +256,14 @@ const Profile = () => {
                         </p>
                         <div className={classNames('new', {'email1': changeEmail})}>
                             <div className='change-input'>
+                                {isErrEmail ? <Alert1>{msgErr}</Alert1> : ''}
                                 <input type='text' placeholder='Your new email :' onChange={handleChangeEmail}/>
                             </div>
                             <button onClick={handleUpdateEmail}>Save</button>
                         </div>
                     </div>
                     <div className='date'>
+                        {okDate ? <Alert2 /> : ''}
                         <label>Date of birth: </label>
                         <p>
                             {okDate?
@@ -227,6 +277,7 @@ const Profile = () => {
                         </p>
                         <div className={classNames('new', {'date1': changeDate})}>
                             <div className='change-input'>
+                                {isErrDate ? <Alert1>{msgErr}</Alert1> : ''}
                                 <input type='text' placeholder='Your birthday :' onChange={handleChangeDate}/>
                             </div>
                             <button onClick={handleUpdateDate}>Save</button>
@@ -235,6 +286,7 @@ const Profile = () => {
                     
                     
                     <div className='uni'>
+                        {okUni ? <Alert2 /> : ''}
                         <label>University: </label>
                         <p>
                             {okUni ? 
@@ -248,15 +300,17 @@ const Profile = () => {
                         </p>
                         <div className={classNames('new', {'uni1': changeUni})}>
                             <div className='change-input'>
+                                {isErrUni ? <Alert1>{msgErr}</Alert1> : ''}
                                 <input type='text' placeholder='Your university :' onChange={handleChangeUni}/>
                             </div>
                             <button onClick={handleUpdateUni}>Save</button>
                         </div>
                     </div>
                     <div className='address'>
+                            {okAdd ? <Alert2 /> : ''}
                             <label>Address: </label>
                             <p>
-                                {user.add}
+                                {okAdd? valueAdd : user.add}
                                 <span>
                                     <button onClick={handleClickAdd}>
                                         <FontAwesomeIcon icon={faUserEdit} className='btn-change-in4' />
@@ -265,6 +319,7 @@ const Profile = () => {
                             </p>
                             <div className={classNames('new', {'add1': changeAdd})}>
                                 <div className='change-input'>
+                                    {isErrAdd ? <Alert1>{msgErr}</Alert1> : ''}
                                     <input type='text' placeholder='Your address :' onChange={handleChangeAdd}/>
                                     
                                 </div>
