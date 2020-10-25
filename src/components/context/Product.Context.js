@@ -34,7 +34,7 @@ export const ProductProvider = (props) => {
 
     const getProduct = () => {
         axios
-            .get("http://localhost:8080" + url)
+            .get("https://amber-api.herokuapp.com" + url)
             .then((res) => {
 
                 setProducts(res.data.products);

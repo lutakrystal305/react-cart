@@ -19,7 +19,7 @@ export const CartProvider = (props) => {
     }
     const getUsers = () => {
         axios
-            .get("http://localhost:8080/user/getUsers")
+            .get("https://amber-api.herokuapp.com/user/getUsers")
             .then((res) => {
                 const a=res.data;
                 let b=a.filter((x) => {
@@ -36,7 +36,7 @@ export const CartProvider = (props) => {
         sessionStorage.removeItem('cartItem');
     }
     const getHistory = () => {
-        const url = "http://localhost:8080/cart/" +userX._id;
+        const url = "https://amber-api.herokuapp.com/cart/" +userX._id;
         axios
             .get(url)
             .then((res) => {

@@ -48,7 +48,7 @@ export default function HoverRating(props) {
 } 
   const handleClick= () => {
     axios
-      .post("http://localhost:8080/user/rate", post)
+      .post("https://amber-api.herokuapp.com/user/rate", post)
       .then((res) => {
         click();
       })

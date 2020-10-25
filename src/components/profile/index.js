@@ -101,7 +101,7 @@ const Profile = () => {
             }
         
         axios
-            .post('http://localhost:8080/user/updatePhone', up)
+            .post('https://amber-api.herokuapp.com/user/updatePhone', up)
             .then((res) => {
                 localStorage.removeItem('user');
                 localStorage.setItem("user", JSON.stringify(res.data));
@@ -121,7 +121,7 @@ const Profile = () => {
                 email: valueEmail
             }
             axios
-                .post('http://localhost:8080/user/updateEmail', up)
+                .post('https://amber-api.herokuapp.com/user/updateEmail', up)
                 .then((res) => {
                     localStorage.removeItem('user');
                     localStorage.setItem("user", JSON.stringify(res.data));
@@ -141,7 +141,7 @@ const Profile = () => {
                 date: valueDate
             }   
             axios
-                .post('http://localhost:8080/user/updateDate', up)
+                .post('https://amber-api.herokuapp.com/user/updateDate', up)
                 .then((res) => {
                     localStorage.removeItem('user');
                     localStorage.setItem("user", JSON.stringify(res.data));
@@ -162,7 +162,7 @@ const Profile = () => {
                 uni: valueUni
             }
             axios
-                .post('http://localhost:8080/user/updateUni', up)
+                .post('https://amber-api.herokuapp.com/user/updateUni', up)
                 .then((res) => {
                     localStorage.removeItem('user');
                     localStorage.setItem("user", JSON.stringify(res.data));
@@ -182,7 +182,7 @@ const Profile = () => {
                 add: valueAdd
             }
             axios
-                .post('http://localhost:8080/user/updateAdd', up)
+                .post('https://amber-api.herokuapp.com/user/updateAdd', up)
                 .then((res) => {
                     localStorage.removeItem('user');
                     localStorage.setItem("user", JSON.stringify(res.data));

@@ -8,7 +8,7 @@ export const AuthProvider = (props) => {
 
   const checkLoggin = (token) => {
     axios
-      .post("http://localhost:8080/user/checkToken", { token })
+      .post("https://amber-api.herokuapp.com/user/checkToken", { token })
       .then((res) => {
         if (res.data) {
           setIsAuth(true);

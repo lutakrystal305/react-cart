@@ -55,7 +55,7 @@ export default function Login(props) {
         password: valuePassword
       };
       axios
-        .post("http://localhost:8080/user/login", user)
+        .post("https://amber-api.herokuapp.com/user/login", user)
         .then((res) => {
           setValueEmail("");
           setValuePassword("");

@@ -75,7 +75,7 @@ function Signup() {
         add: valueAdd
       };
       axios
-        .post("http://localhost:8080/user/create", user)
+        .post("https://amber-api.herokuapp.com/user/create", user)
         .then((res) => {
           setValueName("");
           setValueEmail("");

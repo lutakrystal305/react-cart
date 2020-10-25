@@ -86,7 +86,7 @@ export default function SimpleModal() {
       email: email
     };
     axios
-      .post("http://localhost:8080/cart/", customer)
+      .post("https://amber-api.herokuapp.com/cart/", customer)
       .then((res) => {
         setSuccess(true);
         setOpen(false);
