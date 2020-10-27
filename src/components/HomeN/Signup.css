@@ -30,10 +30,11 @@ h3 {
     color: #DDD;
     text-align: center;
 }
+
 @media(max-width: 600px) {
     form {
-        width: auto;
-        height: auto;
+        width: auto !important;
+        height: auto !important;
     }
     .form-group input {
         width: auto !important;
@@ -41,4 +42,5 @@ h3 {
     .bg-homeN {
         height: 100% !important;
     }
+    
 }

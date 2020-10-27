@@ -1,5 +1,33 @@
+.d-login {
+    position: relative;
+    top: -100px;
+    display: flex;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    border: 1px solid #CCC;
+}
+.bg-login {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+.bg-login img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 #form-login {
-    margin-top: 60px;
+    position: unset;
+    width: 400px;
+    border-radius: unset !important;
+}
+#form-login input {
+    width: 300px;
 }
 input:focus {
     outline: none;
@@ -51,11 +79,37 @@ input:focus {
     height: 100%;
     object-fit: cover;
 }
+.Login .logo {
+    display: none;
+    margin-top: 30px;
+    border: 1px solid #CCC;
+    border-radius: 5000px;
+    overflow: hidden;
+    width: 60px;
+}
+.Login .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 @media(max-width: 600px) {
     .Login .left-scene {
         display: none;
     }
     .Login .right-scene {
         display: none;
+    }
+    .bg-login {
+        display: none;
+    }
+    .d-login{
+        width: auto;
+        height: auto;
+    }
+    #form-login {
+        border: unset !important;
+    }
+    .Login .logo {
+        display: block;
     }
 }

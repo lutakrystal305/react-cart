@@ -41,6 +41,7 @@ button:hover {
     text-align: center;
 }
 .avt-user {
+    height: 40px;
     border-radius: 500px;
     border: 1px solid #BBB;
 }

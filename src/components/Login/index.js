@@ -8,6 +8,7 @@ import { AuthContext } from '../context/Auth.Context';
 import bg2 from '../img/bg2.png';
 import frame from '../img/frame.png';
 import bgzz from '../img/bgzz.png';
+import pug1 from '../img/pug1.png';
 
 export default function Login(props) {
   const [valueEmail, setValueEmail] = useState("");
@@ -100,33 +101,40 @@ export default function Login(props) {
       <div className='right-scene'>
         <img src={frame} alt='right-scene' />
       </div>
-
-      <form onSubmit={handleSubmit} id="form-login">
-        {isErrEmail ? <Alert>Email was wrong syntax</Alert> : ""}
-        {isErrPassword ? <Alert>Password was wrong syntax</Alert> : ""}
-        <h3>Sign in!!</h3>
-        <div className="form-group">
-          <input
-            type="text"
-            name="email"
-            value={valueEmail}
-            onChange={handleChangeEmail}
-            placeholder="  Email"
-            required
-          />
+      <div className="d-login" >
+        <div className='bg-login'>
+          <img src={pug1} alt='bg-login' />
         </div>
-        <div className="form-group">
-          <input
-            type="password"
-            name="password"
-            value={valuePassword}
-            onChange={handleChangePassword}
-            placeholder="  Password"
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+        <form onSubmit={handleSubmit} id="form-login">
+          {isErrEmail ? <Alert>Email was wrong syntax</Alert> : ""}
+          {isErrPassword ? <Alert>Password was wrong syntax</Alert> : ""}
+          <div className='logo'>
+           <img src={pug1} alt='logo-login' />
+          </div>
+          <h3>Sign in!!</h3>
+          <div className="form-group">
+            <input
+              type="text"
+              name="email"
+              value={valueEmail}
+              onChange={handleChangeEmail}
+              placeholder="  Email"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              name="password"
+              value={valuePassword}
+              onChange={handleChangePassword}
+              placeholder="  Password"
+              required
+            />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
 }

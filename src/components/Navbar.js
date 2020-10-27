@@ -59,7 +59,7 @@ const Example = (props) => {
   return (
     <div className='d-Navbar'>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Krystal</NavbarBrand>
+        <NavbarBrand href="/">Amber</NavbarBrand>
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem className="Top">
