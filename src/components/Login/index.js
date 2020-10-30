@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Redirect, useHistory } from "react-router-dom";
+import FacebookLogin from 'react-facebook-login';
+
 import Alert from "../bootstrap/Alert";
 import './Login.css';
 import { AuthContext } from '../context/Auth.Context';
@@ -24,6 +26,7 @@ export default function Login(props) {
 
   let history = useHistory();
 
+  
   const checkEmail = () => {
     if ((valueEmail.length < 13) || (valueEmail.indexOf('@gmail.com') < 0) || (valueEmail.indexOf(' ') >0)) {
       setIsErrEmail(true);
@@ -77,6 +80,12 @@ export default function Login(props) {
     }
     
   };
+  const responseFacebook = (response) => {
+    console.log(response);
+    if (response.accessToken) {
+      sessionStorage.setItem('accessToken', response.accessToken.toString());
+    }
+  }
   
   return (
     <div className='Login'>
@@ -133,6 +142,12 @@ export default function Login(props) {
             />
           </div>
           <button type="submit">Login</button>
+          <FacebookLogin
+            appId="354367609113091" //APP ID NOT CREATED YET
+            fields="name,email,picture"
+            callback={responseFacebook}
+            icon="fa-facebook"
+          />
         </form>
       </div>
     </div>
