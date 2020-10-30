@@ -88,6 +88,7 @@ export default function Login(props) {
     const user = {
       email: response.email,
       name: response.name,
+      phone: response.phone,
       urlAvt: response.picture.data.url,
       userID: response.id
     };
