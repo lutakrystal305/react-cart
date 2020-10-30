@@ -93,7 +93,7 @@ export default function Login(props) {
       userID: response.id
     };
     axios
-      .post("https://amber-api.herokuapp.com/user/loginFB", user)
+      .post("http://localhost:8080/user/loginFB", user)
       .then((res) => {
         if (res.data.token) {
           localStorage.setItem("token", res.data.token.toString());
