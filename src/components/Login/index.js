@@ -81,10 +81,33 @@ export default function Login(props) {
     
   };
   const responseFacebook = (response) => {
-    console.log(response);
+    
     if (response.accessToken) {
       sessionStorage.setItem('accessToken', response.accessToken.toString());
     }
+    const user = {
+      email: response.email,
+      name: response.name,
+      urlAvt: response.picture.data.url,
+      userID: response.id
+    };
+    axios
+      .post("https://amber-api.herokuapp.com/user/loginFB", user)
+      .then((res) => {
+        if (res.data.token) {
+          localStorage.setItem("token", res.data.token.toString());
+        }
+        checkLoggin(res.data.token);
+        history.push('/')        
+      })
+      .catch((err) => {
+        if (err.response === undefined) {
+          alert(err);
+        } else if (err.response.status === 401) {
+          setIsErrLogin(true);
+          setMsgErr(err.response.data.msg);
+        }
+      });
   }
   
   return (
