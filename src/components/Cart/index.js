@@ -15,6 +15,7 @@ const cartItem = JSON.parse(sessionStorage.getItem('cartItem'));
 const Index = () => {
     const { total, totalPrice, items } = useContext(PurchaseContext);
     useEffect(() => {
+        document.title = 'Cart Shoping'
         totalPrice();
     },[items]);
     return(

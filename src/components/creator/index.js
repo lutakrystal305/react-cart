@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import xinh from '../img/xinh.jpg';
 import hzz from '../img/hzz.png';
 import './Creator.css';
@@ -7,6 +7,9 @@ import Infor from './in4';
 import Footer from '../footer/';
 
 const Creator = () => {
+    useEffect(() => {
+        document.title = 'Author'
+    }, []);
     return (
         <div className='Creator'>
             <div className='cover-creator'>

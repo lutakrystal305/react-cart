@@ -79,26 +79,31 @@ const Infor = () => {
                 </div>
                 <div className='pj'>
                     <h5>My project:</h5>
-                    <div className='pj-z'>
-                        {(isHover === 1) ?
-                            (<div className='pj-content'>
+                    <a href='https://lutakrystal305.herokuapp.com/' target='_blank'>
+                        <div className='pj-z'>
+                            {(isHover === 1) ?
+                                (
+                                <div className='pj-content'>
 
-                                <FontAwesomeIcon icon={faHeart} className='icon-heart' />
-                            </div>)
-                        : ''
-                        }
-                        <img src={am1} alt='project' onMouseOver={() => handleOver(1)} onMouseOut={handleOut} />
-                    </div>
-                    <div className='pj-z'>
-                        {(isHover === 2) ?
-                            (<div className='pj-content'>
+                                    <FontAwesomeIcon icon={faHeart} className='icon-heart' />
+                                </div>)
+                            : ''
+                            }
+                            <img src={am1} alt='project' onMouseOver={() => handleOver(1)} onMouseOut={handleOut} />
+                        </div>
+                    </a>
+                    <a href='https://amber-social.herokuapp.com/' target='_blank'>
+                        <div className='pj-z'>
+                            {(isHover === 2) ?
+                                (<div className='pj-content'>
 
-                                <FontAwesomeIcon icon={faHeart} className='icon-heart' />
-                            </div>)
-                        : ''
-                        }
+                                    <FontAwesomeIcon icon={faHeart} className='icon-heart' />
+                                </div>)
+                            : ''
+                            }
                         <img src={am2} alt='project' onMouseOver={() => handleOver(2)} onMouseOut={handleOut} />
-                    </div>
+                        </div>
+                    </a>
                 </div>
                 {isMore ?
                     (<div className='container-in4'>

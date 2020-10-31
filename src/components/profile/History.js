@@ -9,6 +9,7 @@ const History = () => {
     
     const { history, getHistory } = useContext(CartContext);
     useEffect(() => {
+        document.title = " Your history"
         getHistory();
     }, [])
     return(

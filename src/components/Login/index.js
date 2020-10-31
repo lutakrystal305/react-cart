@@ -110,7 +110,9 @@ export default function Login(props) {
         });
     }
   }
-  
+  useEffect(() => {
+    document.title = 'Login'
+  }, [])
   return (
     <div className='Login'>
       {isErrLogin ? 

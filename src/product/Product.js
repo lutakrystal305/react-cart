@@ -13,6 +13,7 @@ const Product = () => {
     
     handleChangePage(window.location.search);
     useEffect(() => {
+        document.title = 'Shopinggg'
         getProduct();   
     },[changePage]);
     return(

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Rating1 from '../material-ui/Rating1';
 import forest from '../img/forest.jpg';
 import { Link } from 'react-router-dom';
 
 const Logged = () => {
+    useEffect(() => {
+        document.title = 'Amber'
+    }, [])
     return(
         <div className='Logged'>
             <h2>Welcome to Amber</h2>

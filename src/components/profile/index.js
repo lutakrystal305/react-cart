@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import axios from 'axios';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -190,8 +190,16 @@ const Profile = () => {
         }
 
     }
-    
-    
+    let userPhone;
+    if (!user.phone) {
+        userPhone = ''
+    } else {
+        userPhone = user.phone;
+    }
+
+    useEffect(() => {
+        document.title= `${user.name}`
+    }, [])
     return(
         <div className='Profile'>
             <div className='cover-creator'>
@@ -227,7 +235,7 @@ const Profile = () => {
                         <label>Phone: </label>
                         <p>
                             { okPhone?
-                            valuePhone : '0'+user.phone
+                            valuePhone : '0'+userPhone
                             }
                             <span>
                                 <button onClick={handleClickPhone}>
