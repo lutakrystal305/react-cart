@@ -168,9 +168,11 @@ export default function Login(props) {
           <button type="submit">Login</button>
           <FacebookLogin
             appId="354367609113091" //APP ID NOT CREATED YET
+            redirectUri={window.location.href}
             fields="name,email,picture"
-            disableMobileRedirect={false}
+            cssClass="btn btn-block btn-social btn-facebook"
             callback={responseFacebook}
+            disableMobileRedirect={false}
             icon="fa-facebook"
           />
         </form>
