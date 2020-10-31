@@ -216,7 +216,7 @@ const Profile = () => {
                     <img src={avt} alt='avt' width={150}/>
                     <h4>{user.name}</h4>
                 </div>
-                <h2 className='title'>Curriculum Vitae</h2>
+                <h2 className='title'>Personal Information</h2>
                 <div className='body-in4'>
                     <div className='left-scene-in4'>
                         <img src={hall1} alt='left-scene-in4' />
