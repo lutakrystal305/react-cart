@@ -80,7 +80,7 @@
     grid-row-gap: 20px;
 }
 .body-in4 > div {
-    width: 100%;
+    width: 100% !important;
     border-radius: 30px;
     padding: 10px 20px 0px 20px;
     font-weight: bold;
