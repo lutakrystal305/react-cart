@@ -173,6 +173,7 @@ export default function Login(props) {
             fields="name,email,picture"
             callback={responseFacebook}
             disableMobileRedirect={false}
+            isMobile={false}
             icon="fa-facebook"
           />
         </form>
