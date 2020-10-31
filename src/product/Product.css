@@ -9,6 +9,17 @@
     margin-top: 50px;
     justify-content: center;
 }
+.card {
+    overflow: hidden;
+}
 .card img {
     height: 240px;
+    object-fit: cover;
+}
+.card img{
+    transition: width 2s;
+}
+
+.card img:hover {
+    width: 450px;
 }

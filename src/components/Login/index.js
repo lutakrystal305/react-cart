@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { Redirect, useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import FacebookLogin from 'react-facebook-login';
 
 import Alert from "../bootstrap/Alert";
@@ -165,12 +165,12 @@ export default function Login(props) {
               required
             />
           </div>
-          <button type="submit">Login</button>
+          <button type="submit" className="btn-login">Login</button>
+          <Link to='/' className="link-signup">Sign up</Link>
           <FacebookLogin
             appId="354367609113091" //APP ID NOT CREATED YET
-            redirectUri={window.location.href}
+
             fields="name,email,picture"
-            cssClass="btn btn-block btn-social btn-facebook"
             callback={responseFacebook}
             disableMobileRedirect={false}
             icon="fa-facebook"
