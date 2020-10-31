@@ -136,12 +136,12 @@ export default function TemporaryDrawer(props) {
         <React.Fragment key='right'>
           {isAuth?
             (<img src={avt} alt='avt' className='avt-user' width={40} 
-              onMouseOver={toggleDrawer('right', true)}
+              
               onClick={toggleDrawer('right', true)}
             />)
           :
             (<div className='avt-user avt-none-user' 
-              onMouseOver={toggleDrawer('right', true)}
+              
               onClick={toggleDrawer('right', true)}
             ></div>)
           }
