@@ -84,31 +84,31 @@ export default function Login(props) {
     
     if (response.accessToken) {
       sessionStorage.setItem('accessToken', response.accessToken.toString());
+      const user = {
+        email: response.email,
+        name: response.name,
+        phone: response.phone,
+        urlAvt: response.picture.data.url,
+        userID: response.id
+      };
+      axios
+        .post("https://amber-api.herokuapp.com/user/loginFB", user)
+        .then((res) => {
+          if (res.data.token) {
+            localStorage.setItem("token", res.data.token.toString());
+          }
+          checkLoggin(res.data.token);
+          history.push('/')        
+        })
+        .catch((err) => {
+          if (err.response === undefined) {
+            alert(err);
+          } else if (err.response.status === 401) {
+            setIsErrLogin(true);
+            setMsgErr(err.response.data.msg);
+          }
+        });
     }
-    const user = {
-      email: response.email,
-      name: response.name,
-      phone: response.phone,
-      urlAvt: response.picture.data.url,
-      userID: response.id
-    };
-    axios
-      .post("https://amber-api.herokuapp.com/user/loginFB", user)
-      .then((res) => {
-        if (res.data.token) {
-          localStorage.setItem("token", res.data.token.toString());
-        }
-        checkLoggin(res.data.token);
-        history.push('/')        
-      })
-      .catch((err) => {
-        if (err.response === undefined) {
-          alert(err);
-        } else if (err.response.status === 401) {
-          setIsErrLogin(true);
-          setMsgErr(err.response.data.msg);
-        }
-      });
   }
   
   return (
@@ -169,6 +169,7 @@ export default function Login(props) {
           <FacebookLogin
             appId="354367609113091" //APP ID NOT CREATED YET
             fields="name,email,picture"
+            disableMobileRedirect={false}
             callback={responseFacebook}
             icon="fa-facebook"
           />
